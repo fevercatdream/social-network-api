@@ -215,6 +215,7 @@ const firstName = [
     'Yuu',
     'Keiju',
     'Hisamitsu',
+    'Masaki',
     'Ukyo',
     'Shoji',
     'Shouji',
@@ -273,6 +274,7 @@ const firstName = [
     'Hiroshi',
     'Saki',
     'Akiko',
+    'Toru',
     'Misaki',
     'Soichiro',
     'Teruyuki',
@@ -408,6 +410,7 @@ const lastName = [
     'Kadota',
     'Nakazawa',
     'Mashiro',
+    'Yoshikami',
     'Kawamura',
     'Tokita',
     'Yamada',
@@ -515,6 +518,7 @@ const lastName = [
     'Okuda',
     'Endou',
     'Kaname',
+    'Iizuka',
     'Hanekawa',
     'Genke',
     'Aoki',
@@ -528,6 +532,7 @@ const lastName = [
     'Osaki',
     'Fujieda',
     'Hayakawa',
+    'Hara',
     'Komatsu',
     'Arai',
     'Sawatari',
@@ -541,7 +546,51 @@ const lastName = [
 ];
 
 const thoughts = [
-
+    'Wait, wait, I know this...',
+    'But why the scarecrow',
+    'Yummm... bubble tea',
+    'Is it the equinox?',
+    "Just according to keikaku, Translator's note: Keikaku means plan 😈",
+    'Can a crow create art?',
+    'What do cats dream about',
+    'How would you greet a psychopomp?',
+    'I miss cloudy days, I want the rain to return',
+    'Spicy 🌶️',
+    'Not the zombies',
+    'Can a bird hiccup?',
+    'Yes, I think I shall eat that cracker',
+    'お前はもう死んでいる',
+    'Why do we see in color?',
+    '一番好きな人',
+    'La, la, la...',
+    "Let's grow collards!",
+    'Would you rather have telekinesis, telepathy, or the ability to fly?',
+    'I seen better days...',
+    'Why did it have to be a couch?',
+    'If plants were sentient, what would they say?',
+    'Crack the egg, mix it around, throw it in the pan, yea food',
+    'お待ちください',
+    'Why is it so difficult to draw a perfect circle freehand?',
 ];
 
-module.exports = { users, thoughts };
+// Get a random item given an array
+const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+// Gets a random full name
+const getRandomName = () =>
+  `${getRandomArrItem(firstName)} ${getRandomArrItem(lastName)}`;
+
+// Function to generate random thoughts that we can add to user object.
+const getRandomThoughts = (int) => {
+  const results = [];
+  for (let i = 0; i < int; i++) {
+    results.push({
+      thought: getRandomArrItem(thoughts),
+      username: getRandomName(),
+    });
+  }
+  return results;
+};
+
+// Export the functions for use in seed.js
+module.exports = { getRandomName, getRandomThoughts };
