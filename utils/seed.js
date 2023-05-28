@@ -14,19 +14,17 @@ connection.once('open', async () => {
     await Thought.deleteMany({});
 
     const users = [];
-    const thoughts = getRandomThoughts(3);
-
-  for (let i = 0; i < 20; i++) {
-    const fullName = getRandomName();
-    const first = fullName.split(' ')[0];
-    const last = fullName.split(' ')[1];
-
-    users.push({
-      first,
-      last,
-      thoughts,
-    });
-  }    
+    
+    for (let i = 0; i < 20; i++) {
+      const fullName = getRandomName();
+      
+      users.push({
+        username: fullName,
+        email: `${fullName.toLowerCase().replace(/ /g,"_")}@example.com`,
+      });
+    }    
+    
+    const thoughts = getRandomThoughts(3, users);
 
     // insert seed users
     await User.collection.insertMany(users);

@@ -565,7 +565,7 @@ const thoughts = [
     'La, la, la...',
     "Let's grow collards!",
     'Would you rather have telekinesis, telepathy, or the ability to fly?',
-    'I seen better days...',
+    "I've seen better days...",
     'Why did it have to be a couch?',
     'If plants were sentient, what would they say?',
     'Crack the egg, mix it around, throw it in the pan, yea food',
@@ -581,12 +581,12 @@ const getRandomName = () =>
   `${getRandomArrItem(firstName)} ${getRandomArrItem(lastName)}`;
 
 // Function to generate random thoughts that we can add to user object.
-const getRandomThoughts = (int) => {
+const getRandomThoughts = (int, users) => {
   const results = [];
   for (let i = 0; i < int; i++) {
     results.push({
       thought: getRandomArrItem(thoughts),
-      username: getRandomName(),
+      username: getRandomArrItem(users).username,
     });
   }
   return results;
