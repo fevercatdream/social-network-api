@@ -49,6 +49,12 @@ This application uses the following:
 
 [Mongoose](https://www.npmjs.com/package/mongoose) Mongoose is an Object Data Modeling (ODM) library for MongoDB, supports Node.js.
 
+To seed the application, run the following command:
+
+```
+npm run seed
+```
+
 The application will be invoked by using the following command:
 
 ```
@@ -61,7 +67,7 @@ npm start
 Use as a social network api to share thoughts, have a friends list, and react to friends thoughts.
 
 ### Screencastify Demo
-
+https://drive.google.com/file/d/1h44DcTlLrRSPobondBwmIJmCHSU9WCC8/view?usp=sharing
 
 
 ## Credits
