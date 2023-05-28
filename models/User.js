@@ -18,7 +18,6 @@ const userSchema = new Schema(
             match: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
         },
         thoughts: [thoughtSchema],
-        friends: [this],
     },
     {
         toJSON: {
@@ -26,6 +25,10 @@ const userSchema = new Schema(
         }
     }
 );
+
+userSchema.add({
+    friends: [userSchema]
+});
 
 // creates virtual property
 userSchema

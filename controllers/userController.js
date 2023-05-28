@@ -73,9 +73,11 @@ module.exports = {
     },
     // remove a friend from a user
     removeFriend(req, res) {
+        console.log("req.params.userId", req.params.userId);
+        console.log("req.params.friendId", req.params.friendId);
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friend: { friendId: req.params.friendId } } },
+            { $pull: { friends: { _id: req.params.friendId } } },
             { runValidators: true, new: true }
         )
             .then((user) => 
